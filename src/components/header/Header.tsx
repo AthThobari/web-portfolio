@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./header.css";
 const Header = () => {
     const [active, setActive] = useState(window.location.hash || "#home")
+    const [toggle, showMenu] = useState(false)
 
     useEffect(() => {
       const savedActive = localStorage.getItem("activeMenu");
@@ -22,7 +23,7 @@ const Header = () => {
           Web Personal Profile
         </a>
 
-        <div className="nav__menu">
+        <div className={ toggle ? "nav__menu show-menu" : "nav__menu"}>
           <ul className={`nav__list ${true ? "":"grid"}`}>
             <li className="nav__item">
               <a href="#home" onClick={() => setActive("#home")} className={`nav__link ${active === "#home" ? "active-link" : ""}`}>
@@ -55,10 +56,10 @@ const Header = () => {
               </a>
             </li>
           </ul>
-          <i className="uil uil-times nav__close"></i>
+          <i className="uil uil-times nav__close" onClick={() => showMenu(!toggle)}></i>
         </div>
 
-        <div className="nav__toggle">
+        <div className="nav__toggle" onClick={() => showMenu(!toggle)}>
           <i className="uil uil-apps"></i>
         </div>
       </nav>
