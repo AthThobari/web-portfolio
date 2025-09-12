@@ -13,6 +13,7 @@ export function App() {
      <main className="main">
      <Home />
      <About />
+     <div id="test"></div>
      </main>
     </div>
   );
