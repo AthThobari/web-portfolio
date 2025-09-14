@@ -46,20 +46,21 @@ const Backend = () => {
                     </div>
                 </div>
                 
-                <div className="skills__data">
-                    <i className="bx bx-badge-check"></i>
-
-                    <div className="">
-                        <h3 className='skills__name'>MongoDB</h3>
-                        <span className="skills__level">Basic</span>
-                    </div>
-                </div>
 
                 <div className="skills__data">
                     <i className="bx bx-badge-check"></i>
 
                     <div className="">
                         <h3 className='skills__name'>Docker</h3>
+                        <span className="skills__level">Basic</span>
+                    </div>
+                </div>
+
+                                <div className="skills__data" style={{opacity: "0"}}>
+                    <i className="bx bx-badge-check"></i>
+
+                    <div className="">
+                        <h3 className='skills__name'>MongoDB</h3>
                         <span className="skills__level">Basic</span>
                     </div>
                 </div>
