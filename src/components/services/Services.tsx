@@ -16,7 +16,7 @@ const Services = () => {
         <div className="services__content">
           <div>
             <i className="uil uil-web-grid services__icon"></i>
-            <h3 className="services__title">Product <br /> Designer</h3>
+            <h3 className="services__title">Web <br /> Development</h3>
           </div>
 
           <span className="services__button " onClick={() => toggleTab(1)}>
@@ -28,11 +28,9 @@ const Services = () => {
             <div className="services__modal-content">
               <i className="uil uil-times services__modal-close" onClick={() => toggleTab(0)}></i>
 
-              <h3 className="services__modal-title">Product Designer</h3>
+              <h3 className="services__modal-title">Web Development</h3>
               <p className="services__modal-description">
-                Aspiring Fullstack Developer with a strong interest in Backend
-                Development. Currently learning and building projects to improve
-                my skills
+                I build simple landing pages and portfolio websites.
               </p>
 
               <ul className="services__modal-services grid">
@@ -79,7 +77,7 @@ const Services = () => {
         <div className="services__content">
           <div>
             <i className="uil uil-arrow services__icon"></i>
-            <h3 className="services__title">UI/UX <br /> Designer </h3>
+            <h3 className="services__title">API <br /> Development</h3>
           </div>
 
           <span className="services__button" onClick={() => toggleTab(2)}>
@@ -141,8 +139,8 @@ const Services = () => {
 
         <div className="services__content">
           <div>
-            <i className="uil uil-arrow services__icon"></i>
-            <h3 className="services__title">Visual <br /> Designer</h3>
+            <i className="uil uil-react services__icon"></i>
+            <h3 className="services__title">API <br /> Integration</h3>
           </div>
 
           <span className="services__button" onClick={() => toggleTab(3)}>
@@ -154,11 +152,9 @@ const Services = () => {
             <div className="services__modal-content">
               <i className="uil uil-times services__modal-close"  onClick={() => toggleTab(0)}></i>
 
-              <h3 className="services__modal-title">Visual Designer</h3>
+              <h3 className="services__modal-title">API Integration</h3>
               <p className="services__modal-description">
-                Aspiring Fullstack Developer with a strong interest in Backend
-                Development. Currently learning and building projects to improve
-                my skills
+                I help connect APIs with frontend applications
               </p>
 
               <ul className="services__modal-services grid">
