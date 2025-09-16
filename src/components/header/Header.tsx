@@ -5,12 +5,25 @@ const Header = () => {
     const [toggle, showMenu] = useState(false)
 
     useEffect(() => {
-      const savedActive = localStorage.getItem("activeMenu");
-      if (savedActive) {
-        setActive(savedActive)
-      window.location.hash = savedActive
-      }
-    }, [])
+      const sections = document.querySelectorAll("section[id]") as NodeListOf<HTMLElement>;
+
+      const handleScroll = () => {
+        let scrollY = window.pageYOffset;
+
+        sections.forEach((section) => {
+          const sectionHeight = section.offsetHeight;
+          const sectionTop = section.offsetTop - 50;
+          const sectionId = "#" + section.getAttribute("id");
+
+          if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+            setActive(sectionId);
+          }
+        })
+      };
+
+      window.addEventListener("scroll", handleScroll);
+      return () => window.removeEventListener("scroll", handleScroll)
+    }, []);
 
     useEffect(() => {
       localStorage.setItem("activeMenu", active);
