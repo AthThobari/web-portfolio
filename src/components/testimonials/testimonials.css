@@ -30,11 +30,11 @@
 
 /* Swiper class */
 .swiper-pagination-bullet {
-    background-color: var(--text-color);
+    background-color: var(--text-color) !important;
 }
 
 .swiper-pagination-bullet-active {
-    background-color: var(--title-color);
+    background-color: var(--title-color) !important;
 }
 
 @media screen and (max-width: 992px) {
