@@ -1,28 +1,29 @@
-import React, { useRef } from 'react';
-import emailjs from '@emailjs/browser';
-import './contact.css'
+import React, { useRef } from "react";
+import emailjs from "@emailjs/browser";
+import "./contact.css";
+
 
 const Contact = () => {
-    const form = useRef<HTMLFormElement>(null);
+
+  const form = useRef<HTMLFormElement>(null);
 
   const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    if (!form.current) return;
-    
-    emailjs
-      .sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form.current, {
-        publicKey: 'YOUR_PUBLIC_KEY',
-      })
-      .then(
-        () => {
-          console.log('SUCCESS!');
-        },
-        (error) => {
-          console.log('FAILED...', error.text);
-        },
-      );
-  };
+  emailjs.sendForm(
+  import.meta.env.VITE_EMAILJS_SERVICE_ID!,
+  import.meta.env.VITE_EMAILJS_TEMPLATE_ID!,
+  e.currentTarget,
+  import.meta.env.VITE_EMAILJS_PUBLIC_KEY!
+)
+  .then(() => {
+    console.log("Email sent!");
+    form.current?.reset()
+  })
+  .catch((error) => {
+    console.error("Email error:", error);
+  });
+};
   return (
     <section className="contact section" id="contact">
       <h2 className="section__title">Get in touch</h2>
@@ -83,7 +84,7 @@ const Contact = () => {
         <div className="contact__content">
           <h3 className="contact__title">Write me your project</h3>
 
-          <form action="" className="contact__form">
+          <form ref={form} onSubmit={sendEmail} className="contact__form">
             <div className="contact__form-div">
               <label className="contact__form-tag">Name</label>
               <input

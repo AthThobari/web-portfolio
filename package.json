@@ -6,10 +6,11 @@
   "main": "src/index.tsx",
   "module": "src/index.tsx",
   "scripts": {
-    "dev": "bun --hot src/index.tsx",
-    "build": "bun build ./src/index.html --outdir=dist --sourcemap --target=browser --minify --define:process.env.NODE_ENV='\"production\"' --env='BUN_PUBLIC_*'",
-    "start": "NODE_ENV=production bun src/index.tsx"
-  },
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+}
+,
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
     "react": "^19",
@@ -17,8 +18,11 @@
     "swiper": "^12.0.1"
   },
   "devDependencies": {
+    "@types/bun": "latest",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@types/bun": "latest"
+    "@vitejs/plugin-react": "^5.0.3",
+    "dotenv": "^17.2.2",
+    "vite": "^7.1.5"
   }
 }

@@ -1,6 +1,7 @@
 import "./App.css";
 import About from "./components/about/About";
 import Contact from "./components/contact/Contact";
+import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
 import Qualification from "./components/qualification/Qualification";
 import Services from "./components/services/Services";
@@ -24,6 +25,7 @@ export function App() {
      <Qualification />
      <Testimonials />
      <Contact />
+     <Footer />
      <div id="test" style={{height: "300px"}}></div>
      </main>
     </div>
