@@ -1,34 +1,18 @@
 import React, { useEffect, useState } from "react";
 import "./header.css";
 const Header = () => {
-    const [active, setActive] = useState(window.location.hash || "#home")
-    const [toggle, showMenu] = useState(false)
+  // change background header
+  window.addEventListener("scroll", function () {
+    const header = document.querySelector(".header");
+    if (this.scrollY >= 80) header?.classList.add("scroll-header");
+    else header?.classList.remove("scroll-header");
+  });
 
-    useEffect(() => {
-      const sections = document.querySelectorAll("section[id]") as NodeListOf<HTMLElement>;
+  // toggle menu
+  const [toggle, showMenu] = useState(false);
+  const [activeNav, setActiveNav] = useState("#home");
 
-      const handleScroll = () => {
-        let scrollY = window.pageYOffset;
 
-        sections.forEach((section) => {
-          const sectionHeight = section.offsetHeight;
-          const sectionTop = section.offsetTop - 50;
-          const sectionId = "#" + section.getAttribute("id");
-
-          if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-            setActive(sectionId);
-          }
-        })
-      };
-
-      window.addEventListener("scroll", handleScroll);
-      return () => window.removeEventListener("scroll", handleScroll)
-    }, []);
-
-    useEffect(() => {
-      localStorage.setItem("activeMenu", active);
-      window.location.hash = active
-    }, [active])
   return (
     <header className="header">
       <nav className="nav container">
@@ -36,40 +20,79 @@ const Header = () => {
           Web Personal Profile
         </a>
 
-        <div className={ toggle ? "nav__menu show-menu" : "nav__menu"}>
-          <ul className={`nav__list ${true ? "":"grid"}`}>
+        <div className={toggle ? "nav__menu show-menu" : "nav__menu"}>
+          <ul className={`nav__list ${true ? "" : "grid"}`}>
             <li className="nav__item">
-              <a href="#home" onClick={() => setActive("#home")} className={`nav__link ${active === "#home" ? "active-link" : ""}`}>
+              <a
+                href="#home"
+                onClick={() => setActiveNav("#home")}
+                className={`nav__link ${
+                  activeNav === "#home" ? "active-link" : ""
+                }`}
+              >
                 <i className="uil uil-estate nav__icon"></i> Home
               </a>
             </li>
             <li className="nav__item">
-              <a href="#about" onClick={() => setActive("#about")} className={`nav__link ${active === "#about" ? "active-link" : ""}`}>
+              <a
+                href="#about"
+                onClick={() => setActiveNav("#about")}
+                className={`nav__link ${
+                  activeNav === "#about" ? "active-link" : ""
+                }`}
+              >
                 <i className="uil uil-user nav__icon"></i> About
               </a>
             </li>
             <li className="nav__item">
-              <a href="#skills" onClick={() => setActive("#skills")} className={`nav__link ${active === "#skills" ? "active-link" : ""}`}>
+              <a
+                href="#skills"
+                onClick={() => setActiveNav("#skills")}
+                className={`nav__link ${
+                  activeNav === "#skills" ? "active-link" : ""
+                }`}
+              >
                 <i className="uil uil-file-alt nav__icon"></i> Skills
               </a>
             </li>
             <li className="nav__item">
-              <a href="#services" onClick={() => setActive("#services")} className={`nav__link ${active === "#services" ? "active-link" : ""}`}>
+              <a
+                href="#services"
+                onClick={() => setActiveNav("#services")}
+                className={`nav__link ${
+                  activeNav === "#services" ? "active-link" : ""
+                }`}
+              >
                 <i className="uil uil-briefcase-alt nav__icon"></i> Services
               </a>
             </li>
             <li className="nav__item">
-              <a href="#portfolio" onClick={() => setActive("#portfolio")} className={`nav__link ${active === "#portfolio" ? "active-link" : ""}`}>
+              <a
+                href="#portfolio"
+                onClick={() => setActiveNav("#portfolio")}
+                className={`nav__link ${
+                  activeNav === "#portfolio" ? "active-link" : ""
+                }`}
+              >
                 <i className="uil uil-scenery nav__icon"></i> Portfolio
               </a>
             </li>
             <li className="nav__item">
-              <a href="#contact" onClick={() => setActive("#contact")} className={`nav__link ${active === "#contact" ? "active-link" : ""}`}>
+              <a
+                href="#contact"
+                onClick={() => setActiveNav("#contact")}
+                className={`nav__link ${
+                  activeNav === "#contact" ? "active-link" : ""
+                }`}
+              >
                 <i className="uil uil-message nav__icon"></i> Contact
               </a>
             </li>
           </ul>
-          <i className="uil uil-times nav__close" onClick={() => showMenu(!toggle)}></i>
+          <i
+            className="uil uil-times nav__close"
+            onClick={() => showMenu(!toggle)}
+          ></i>
         </div>
 
         <div className="nav__toggle" onClick={() => showMenu(!toggle)}>

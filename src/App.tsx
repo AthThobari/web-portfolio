@@ -8,32 +8,29 @@ import Services from "./components/services/Services";
 import Skills from "./components/skills/Skills";
 import Testimonials from "./components/testimonials/Testimonials";
 import Home from "./home/Home";
+import ScrollUp from "./scrollup/ScrollUp";
 
 import TestNotif from "./UseWebSocket";
-
 
 export function App() {
   return (
     <div className="app">
       {/* <TestNotif /> */}
-     <Header />
-     <main className="main">
-     <Home />
-     <About />
-     <Skills />
-     <Services />
-     <Qualification />
-     <Testimonials />
-     <Contact />
-     <Footer />
-     <div id="test" style={{height: "300px"}}></div>
-     </main>
-    </div>
+      <Header />
+      <main className="main">
+        <Home />
+        <About />
+        <Skills />
+        <Services />
+        <Qualification />
+        <Testimonials />
+        <Contact />
+      </main>
 
-    
+      <Footer />
+      <ScrollUp />
+    </div>
   );
 }
 
 export default App;
-
-
