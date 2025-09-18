@@ -89,7 +89,7 @@ const Services = () => {
             <div className="services__modal-content">
               <i className="uil uil-times services__modal-close" onClick={() => toggleTab(0)}></i>
 
-              <h3 className="services__modal-title">UI/UX Designer</h3>
+              <h3 className="services__modal-title">API Development</h3>
               <p className="services__modal-description">
                 Aspiring Fullstack Developer with a strong interest in Backend
                 Development. Currently learning and building projects to improve
