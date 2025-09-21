@@ -7,10 +7,11 @@ import Qualification from "./components/qualification/Qualification";
 import Services from "./components/services/Services";
 import Skills from "./components/skills/Skills";
 import Testimonials from "./components/testimonials/Testimonials";
-import Home from "./home/Home";
+import Home from "./components/home/Home";
 import ScrollUp from "./scrollup/ScrollUp";
 
 import TestNotif from "./UseWebSocket";
+import Work from "./components/work/work";
 
 export function App() {
   return (
@@ -23,6 +24,7 @@ export function App() {
         <Skills />
         <Services />
         <Qualification />
+        <Work />
         <Testimonials />
         <Contact />
       </main>
